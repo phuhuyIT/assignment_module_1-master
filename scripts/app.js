@@ -11,7 +11,7 @@
                 const dishes = $scope.items.split(',').map(item => item.trim()).filter(Boolean);
 
                 if (dishes.length === 0) {
-                    $scope.message = 'Please enter dishes you usually have for lunch.';
+                    $scope.message = 'Please enter data first.';
                     $scope.classChecker = false;
                 } else {
                     $scope.classChecker = true;
