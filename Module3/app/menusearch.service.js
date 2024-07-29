@@ -22,7 +22,7 @@
   
         return $http.get(ApiBasePath + "/menu_items.json")
           .then(function(response) {
-            return filterItems(response.data.menu_items, searchTerm);
+            return filterItems(response.data, searchTerm);
           })
           .catch(function(error) {
             console.error('Failed to fetch menu items. Error:', error);
@@ -30,10 +30,16 @@
           });
       }
   
-      function filterItems(items, searchTerm) {
-        return items.filter(function(item) {
-          return item.description.indexOf(searchTerm) !== -1;
-        }) || [];
+      function filterItems(data, searchTerm) {
+        var searchItems = [];
+        for (var category in data) {
+          searchItems.push(
+            data[category].menu_items.filter((item) =>
+              item.description.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+          );
+        }
+        return searchItems.flat();
       }
     }
   

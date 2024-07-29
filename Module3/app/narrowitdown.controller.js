@@ -24,7 +24,8 @@
           .then(function(data) {
             vm.found = data;
             vm.loading = false;
-            if (vm.found.length === 0) {
+            console.log(data);
+            if (vm.found.length == 0) {
               vm.message = 'Nothing found!';
             }
           })

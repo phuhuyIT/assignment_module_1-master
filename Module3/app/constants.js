@@ -2,6 +2,6 @@
     'use strict';
   
     angular.module('NarrowItDownApp')
-      .constant('ApiBasePath', "//davids-restaurant.herokuapp.com");
+      .constant('ApiBasePath', "https://coursera-jhu-default-rtdb.firebaseio.com");
   
   })();
